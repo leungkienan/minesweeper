@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', startGame)
  var board = {
    cells:[
 
-    {row:0}
-   ]
+    {row:0},
+    {col:0}
+   ],
    
 
  }
