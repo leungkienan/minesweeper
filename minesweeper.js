@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", startGame);
+document.addEventListener("click", checkForWin);
+document.addEventListener("contextmenu", checkForWin);
 
 // Define your `board` object here!
 
 let board = {
-  // my comments
-  // cells is an array in board, which is an object
-  // in the array are tiles, or more objects in cells
-  // need to add a property to each tile "isMine"
-  // fin.
   cells: [
     {
       row: 0,
@@ -88,7 +85,6 @@ for (let i = 0; i < board.cells.length; i++) {
 function startGame() {
   // Don't remove this function call: it makes the game work!
   lib.initBoard();
-  
 }
 
 // Define this function to look for a win condition:
@@ -96,8 +92,21 @@ function startGame() {
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
 function checkForWin() {
+  let boardWhite = 0;
+  let boardMarks = 0;
+  for (let i = 0; i < board.cells.length; i++) {
+    if (board.cells[i].isMine == true && board.cells[i].isMarked == true) {
+      boardMarks++;
+    }
+    if (board.cells[i].isMine == false && board.cells[i].hidden == false) {
+      boardWhite++;
+    }
+  }
 
+  if (boardWhite + boardMarks == board.cells.length) {
     lib.displayMessage("You win!");
+  }
+
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
 }
