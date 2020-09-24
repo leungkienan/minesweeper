@@ -1,11 +1,30 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
+
+
  let board = {
-  cells: [{row:0,col:0},{row:1,col:0},{row:0,col:1},{row:1,col:1}]
+    // cells is an array in board, which is an object
+    // in the array are tiles, or more objects in cells
+    // need to add a property to each tile "isMine"
+  cells: [
+    cell0 = {row:0,col:0,isMine:true,hidden:true}, 
+    cell1 = {row:1,col:0,isMine:false,hidden:true},
+    cell2 = {row:0,col:1,isMine:false,hidden:true},
+    cell3 = {row:1,col:1,isMine:false,hidden:true}
+    // {row:0,col:0},
+    // {row:1,col:0},
+    // {row:0,col:1},
+    // {row:1,col:1}
+    ]
+
   
 
+
  }
+
+
+
 console.log(board.cells)
 
 function startGame () {
