@@ -5,7 +5,6 @@ document.addEventListener("contextmenu", checkForWin);
 // Define your `board` object here!
 var board = { cells: [] };
 let boardSize = 4;
-let minePercent = 0.8;
 
 function newBoard() {
   for (let i = 0; i < boardSize; i++) {
@@ -13,7 +12,7 @@ function newBoard() {
       board.cells.push({
         row: i,
         col: j,
-        isMine: Math.random() >= minePercent,
+        isMine: Math.random()>= 0.8,
         hidden: true,
         isMarked: false,
       });
@@ -92,11 +91,16 @@ function newBoard() {
 //   ],
 // };
 
+// reset function
+
+//
+
+
+
 function startGame() {
   // Don't remove this function call: it makes the game work!
   newBoard();
   lib.initBoard();
-
   for (let i = 0; i < board.cells.length; i++) {
     countSurroundingMines(board.cells[i]);
   }
